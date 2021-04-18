@@ -1,10 +1,37 @@
-﻿using System;
+﻿using DataAccess.Abstract;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.EntityRepository
 {
-    public class EfColorDal
+    public class EfColorDal : IColorDal
     {
+        public void Add(Color entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Color entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Color Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Color entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
