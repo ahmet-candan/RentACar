@@ -24,7 +24,7 @@ namespace Business.Concrete
 
         public List<Car> GetAllByCategory(int id)
         {
-            return _carDar.GetAll(p => p.CategoryId == id);
+            return _carDar.GetAll(p => p.CarId == id);
         }
 
         public List<Car> GetByUnitPrice(decimal min, decimal max)

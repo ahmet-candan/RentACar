@@ -11,7 +11,7 @@ namespace ConsoleUI
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetAllByCategory(2))
+            foreach (var car in carManager.GetAll())
             {
                 Console.WriteLine(car.DailiyPrice);
             }
