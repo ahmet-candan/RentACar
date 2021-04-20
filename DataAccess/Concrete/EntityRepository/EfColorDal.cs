@@ -29,32 +29,21 @@ namespace DataAccess.Concrete.EntityRepository
             throw new NotImplementedException();
         }
 
-        public Color Get()
+        public Entities.Concrete.Color Get(Expression<Func<Entities.Concrete.Color, bool>> filter)
         {
             throw new NotImplementedException();
         }
 
-        public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         public List<Entities.Concrete.Color> GetAll(Expression<Func<Entities.Concrete.Color, bool>> filter = null)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Color entity)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public void Update(Entities.Concrete.Color entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        Entities.Concrete.Color IEntityRepository<Entities.Concrete.Color>.Get()
         {
             throw new NotImplementedException();
         }

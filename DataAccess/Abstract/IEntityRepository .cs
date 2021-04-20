@@ -10,11 +10,11 @@ namespace DataAccess.Abstract
     // class: referans tip olmalı 
     //IEntity: IEntity olabilir veya onu implemente eden başka bir NESENE olabilir
     // new(): newlenebilir olmalıdır. interfaceler newlenemez 
-    public interface IEntityRepository<T> where T:class
+    public interface IEntityRepository<T> where T:class,IEntity,new()
     {
         List<T> GetAll(Expression<Func<T,bool>> filter =null);// Generic bir IEntityRepository oluşturduk
 
-        T Get();
+        T Get(Expression<Func<T, bool>> filter);
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);

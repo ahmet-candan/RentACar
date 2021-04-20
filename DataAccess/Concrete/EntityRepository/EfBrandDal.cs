@@ -19,7 +19,7 @@ namespace DataAccess.Concrete.EntityRepository
             throw new NotImplementedException();
         }
 
-        public Brand Get()
+        public Brand Get(Expression<Func<Brand, bool>> filter)
         {
             throw new NotImplementedException();
         }
@@ -32,6 +32,8 @@ namespace DataAccess.Concrete.EntityRepository
         public void Update(Brand entity)
         {
             throw new NotImplementedException();
+
+
         }
     }
 }

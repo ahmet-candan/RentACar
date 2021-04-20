@@ -35,17 +35,22 @@ namespace DataAccess.Concrete.EntityRepository
             }
         }
 
-        public Car Get()
+  
+
+        public Car Get(Expression<Func<Car, bool>> filter)
         {
-            throw new NotImplementedException();
+            using (RentACarContext context = new RentACarContext())
+            {
+                return context.Set<Car>().SingleOrDefault(filter);
+            }
         }
 
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
             using (RentACarContext context = new RentACarContext())
             {
-                return filter == null ? 
-                         context.Set<Product>().ToList(): context.Set<Product>().Where(filter).ToList();
+                return filter == null ? context.Set<Car>().ToList():
+                    context.Set<Car>().Where(filter).ToList();
             }
         }
 
