@@ -1,4 +1,6 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,45 +9,8 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityRepository
 {
-    public class EfColorDal : IColorDal
+    public class EfColorDal :EfEntityRepositoryBase<Color,RentACarContext>, IColorDal
     {
-        public void Add(Color entity)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void Add(Entities.Concrete.Color entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Color entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Entities.Concrete.Color entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Entities.Concrete.Color Get(Expression<Func<Entities.Concrete.Color, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-     
-
-        public List<Entities.Concrete.Color> GetAll(Expression<Func<Entities.Concrete.Color, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-        public void Update(Entities.Concrete.Color entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
