@@ -19,10 +19,17 @@ namespace DataAccess.Concrete.EntityRepository
             {
                 var result = from c in context.Cars
                              join b in context.Brands
-                             join o in context.Colors
-                             on c.
-
-
+                             on c.BrandId equals b.BrandId
+                             join color in context.Colors
+                             on c.ColorId equals color.ColorId
+                             select new CarDetailDto
+                             {
+                                 CarId = c.CarId,
+                                 BrandName = b.Name,
+                                 ColorName = color.Name,
+                                 DailiyPrice = c.DailiyPrice
+                             };
+                return result.ToList();
             }
         }
     }
