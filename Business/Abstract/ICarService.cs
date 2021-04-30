@@ -15,6 +15,10 @@ namespace Business.Abstract
 
         List<CarDetailDto> GetCarDetails();
 
+        Car GetById(int carId);
+
+        void Add(Car car);
+
 
     }
 }
