@@ -34,29 +34,30 @@ namespace Business.Concrete
         {
             if (DateTime.Now.Hour == 23)
             {
-                return ErrorDataResult();
+                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }
-            return new SuccessDataResult<List<Car>>(_carDar.GetAll(),true,"Ürünler Listelendi");
+            return new SuccessDataResult<List<Car>>(_carDar.GetAll(),Messages.ProductsListed);
         }
 
         public IDataResult<List<Car>> GetAllByCategory(int id)
         {
-            return _carDar.GetAll(p => p.CarId == id);
+
+            return new SuccessDataResult<List<Car>>(_carDar.GetAll(p => p.CarId == id));
         }
 
-        public Car GetById(int carId)
+        public IDataResult<Car> GetById(int carId)
         {
-            return _carDar.Get(p => p.CarId == carId);
+            return new SuccessDataResult<Car>(_carDar.Get(p => p.CarId == carId));
         }
 
-        public List<Car> GetByUnitPrice(decimal min, decimal max)
+        public IDataResult<List<Car>> GetByUnitPrice(decimal min, decimal max)
         {
-            return _carDar.GetAll(p => p.DailiyPrice>= min && p.DailiyPrice <= max);
+            return new SuccessDataResult<List<Car>>(_carDar.GetAll(p => p.DailiyPrice>= min && p.DailiyPrice <= max));
         }
 
-        public List<CarDetailDto> GetCarDetails()
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            return _carDar.GetCarDetails();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDar.GetCarDetails());
         }
     }
 }
