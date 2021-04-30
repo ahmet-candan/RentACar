@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class CarManager : ICarService
+    public class CarManager : ICarService  
     {
 
         ICarDal _carDar;
@@ -18,9 +19,14 @@ namespace Business.Concrete
             _carDar = carDar;
         }
 
-        public void Add(Car car)
+        public IResult Add(Car car)
         {
+            if (car.Description.Length < 2)
+            {
+                return new ErrorResult("Araba açıklaması en az 2 karekter olmalıdır");
+            }
             _carDar.Add(car);
+            return new Result(true,"Araba eklendi");
         }
 
         public List<Car> GetAll()

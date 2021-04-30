@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Business.Abstract
 
         Car GetById(int carId);
 
-        void Add(Car car);
+        IResult Add(Car car);
 
 
     }
