@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -23,18 +24,18 @@ namespace Business.Concrete
         {
             if (car.Description.Length < 2)
             {
-                return new ErrorResult("Araba açıklaması en az 2 karekter olmalıdır");
+                return new ErrorResult(Messages.ProductNameInvalid);
             }
             _carDar.Add(car);
-            return new Result(true,"Araba eklendi");
+            return new Result(true,Messages.ProductAdded);
         }
 
-        public List<Car> GetAll()
+        public IDataResult<List<Car>> GetAll()
         {
-            return _carDar.GetAll();
+            return new DataResult(_carDar.GetAll());
         }
 
-        public List<Car> GetAllByCategory(int id)
+        public IDataResult<List<Car>> GetAllByCategory(int id)
         {
             return _carDar.GetAll(p => p.CarId == id);
         }
