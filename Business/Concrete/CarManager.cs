@@ -32,7 +32,11 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            return new DataResult(_carDar.GetAll());
+            if (DateTime.Now.Hour == 23)
+            {
+                return ErrorDataResult();
+            }
+            return new SuccessDataResult<List<Car>>(_carDar.GetAll(),true,"Ürünler Listelendi");
         }
 
         public IDataResult<List<Car>> GetAllByCategory(int id)
