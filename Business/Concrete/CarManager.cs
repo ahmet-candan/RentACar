@@ -22,17 +22,14 @@ namespace Business.Concrete
 
         public IResult Add(Car car)
         {
-            if (car.Description.Length < 2)
-            {
-                return new ErrorResult(Messages.ProductNameInvalid);
-            }
+            
             _carDar.Add(car);
             return new Result(true,Messages.ProductAdded);
         }
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour == 23)
+            if (DateTime.Now.Hour == 12)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }

@@ -29,6 +29,7 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Autofac, ninject ==> IoC Container yapýsýný AOP ile  kullanacaðýz 
             services.AddControllers();
             services.AddSingleton<ICarService, CarManager>(); //bellekte 1 kere referans oluþturur birisi ctorda ICarService isterse CarManager new'i verir
             services.AddSingleton<ICarDal, EfCarDal>();

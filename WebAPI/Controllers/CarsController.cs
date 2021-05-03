@@ -26,13 +26,39 @@ namespace WebAPI.Controllers
             _carService = carService;
         }
 
-        [HttpGet]
-        public List<Car> Get()
+        [HttpGet("getall")]
+        public IActionResult GetAll()
         {
             //Dependency chain 
-            ICarService carService = new CarManager(new EfCarDal());
+      
             var result = _carService.GetAll();
-            return result.Data;
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _carService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("add")]
+        public IActionResult Add(Car car)
+        {
+            var result = _carService.Add(car);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }
