@@ -27,6 +27,12 @@ namespace Business.Concrete
             return new Result(true,Messages.ProductAdded);
         }
 
+        public IResult Delete(Car car)
+        {
+            _carDar.Delete(car);
+            return new SuccessResult(Messages.CarDeletedMessage);
+        }
+
         public IDataResult<List<Car>> GetAll()
         {
             if (DateTime.Now.Hour == 12)
@@ -55,6 +61,13 @@ namespace Business.Concrete
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDar.GetCarDetails());
+        }
+
+        public IResult Update(Car car)
+        {
+            _carDar.Update(car);
+            return new SuccessResult(Messages.CarUpdatedMessage);
+
         }
     }
 }

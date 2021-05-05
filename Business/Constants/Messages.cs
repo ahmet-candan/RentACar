@@ -16,5 +16,7 @@ namespace Business.Constants
         internal static string BrandAllListedMessage = "Tüm markalar listelendi";
         internal static string BrandSingularFilteredListedMessage = "Id ye göre maraklar listelendi";
         internal static string BrandUpdatedMessage = "Marka güncellendi";
+        internal static string CarDeletedMessage = "Araba silindi";
+        internal static string CarUpdatedMessage = "Araba güncellendi";
     }
 }
